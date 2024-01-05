@@ -165,9 +165,14 @@ const App = () => {
     }, []);
 
     const [showStats, setShowStats] = useState(false);
+    const [viewStatsButtonLabel, setViewStatsButtonLabel] =
+        useState("View stats");
 
     const handleClickViewStats = () => {
         setShowStats(!showStats);
+        setViewStatsButtonLabel((label) =>
+            label === "View stats" ? "View today" : "View stats"
+        );
         fetchStats(); // Reload the stats data
     };
 
@@ -184,7 +189,10 @@ const App = () => {
                 />
                 {showStats && <Stats statsData={statsData} />}
                 <InspiringBoard tasks={tasks} />
-                <Footer onClickViewStats={handleClickViewStats} />
+                <Footer
+                    onClickViewStats={handleClickViewStats}
+                    buttonLabel={viewStatsButtonLabel}
+                />
 
                 <NotYetMessage
                     isOpen={showNotYetMessage}

@@ -3,7 +3,7 @@ import "./footer.css";
 import { useState, useEffect } from "react";
 import Logo from "../assets/logo.png";
 
-const Footer = ({ onClickViewStats }) => {
+const Footer = ({ onClickViewStats, buttonLabel }) => {
     const [time, setTime] = useState(new Date());
 
     useEffect(() => {
@@ -75,7 +75,7 @@ const Footer = ({ onClickViewStats }) => {
                 <span>{formatTime(time)}</span>
             </div>
             <div className="stats">
-                <button onClick={onClickViewStats}>View stats</button>
+                <button onClick={onClickViewStats}>{buttonLabel}</button>
             </div>
         </footer>
     );
