@@ -1,0 +1,13 @@
+.inspiring-board {
+    background-color: var(--color-primary);
+    text-align: center;
+    font-weight: 600;
+    padding: 3.2rem 0;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5rem;
+}

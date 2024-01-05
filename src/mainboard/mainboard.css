@@ -1,0 +1,60 @@
+.list {
+    margin-left: 10rem;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2.8rem;
+}
+
+.check-btn {
+    margin-right: 0.2rem;
+    margin-bottom: -0.2rem;
+}
+
+input[type="checkbox"] {
+    height: 2rem;
+    width: 2rem;
+    accent-color: var(--color-secondary);
+}
+
+.delete-btn {
+    margin-left: 0.5rem;
+    margin-bottom: -0.2rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 1.2rem;
+    font: 1.5rem sans-serif;
+    background: lightsteelblue;
+    color: var(--color-secondary);
+    border: 0px;
+    border-radius: 2rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.barplot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.x-axis-line {
+    stroke: var(--color-secondary);
+    stroke-width: 3;
+}
