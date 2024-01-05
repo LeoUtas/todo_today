@@ -3,9 +3,9 @@ import * as d3 from "d3";
 import "../index.css";
 import "./mainboard.css";
 
-const MARGIN = { top: 60, right: 50, bottom: 80, left: 50 };
+const MARGIN = { top: 30, right: 30, bottom: 30, left: 30 };
 const BAR_PADDING = 0.2;
-const PLOT_LAYOUT = { width: 600, height: 500 };
+// const PLOT_LAYOUT = { width: 600, height: 500 };
 
 const Barplot = ({ width, height, data }) => {
     const boundsWidth = width - MARGIN.right - MARGIN.left;
@@ -110,24 +110,28 @@ const Barplot = ({ width, height, data }) => {
 
 const Stats = ({ statsData }) => {
     const [plotWidth, setPlotWidth] = useState(window.innerWidth * 0.9);
+    const [plotHeight, setPlotHeight] = useState(window.innerHeight * 0.9);
 
     useEffect(() => {
-        // function to update the plot width
-        const updatePlotWidth = () => {
+        // function to update the plot width & height
+        const updatePlotSize = () => {
             setPlotWidth(window.innerWidth * 0.9);
+            setPlotHeight(window.innerHeight * 0.4);
         };
 
         // update plot width when the window resizes
-        window.addEventListener("resize", updatePlotWidth);
+        window.addEventListener("resize", updatePlotSize);
+        window.addEventListener("resize", updatePlotSize);
 
-        // set the initial plot width
-        updatePlotWidth();
+        // set the initial plot size
+        updatePlotSize();
 
         // remove the event listener
         return () => {
-            window.removeEventListener("resize", updatePlotWidth);
+            window.removeEventListener("resize", updatePlotSize);
         };
     }, []);
+
     const computedData = statsData.map((stats, index) => {
         const done = Math.ceil(
             (stats.numberCompletedTasks / stats.numberListedTasks) * 100
@@ -146,7 +150,7 @@ const Stats = ({ statsData }) => {
         <div className="barplot">
             <Barplot
                 width={plotWidth}
-                height={PLOT_LAYOUT.height}
+                height={plotHeight}
                 data={computedData}
             />
         </div>

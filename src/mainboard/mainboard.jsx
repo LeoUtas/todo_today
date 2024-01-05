@@ -32,7 +32,7 @@ const Mainboard = ({ tasks, onDeleteTask, onToggleTask, showStats }) => {
         <>
             {showStats ? (
                 <div className="barplot">
-                    Let's have a look at the statistics{" "}
+                    Let's have a look at the statistics
                 </div>
             ) : (
                 <div>

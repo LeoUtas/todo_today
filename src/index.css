@@ -59,11 +59,10 @@ body {
         margin-top: 6rem;
     }
 }
+ */
+
 @media screen and (max-width: 600px) {
-    .container {
-        width: var(--container-width-small);
+    body {
+        font-size: 1.6rem;
     }
-    section > h2 {
-        margin-top: 2rem;
-    }
-} */
+}

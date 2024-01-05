@@ -66,7 +66,7 @@ const Footer = ({ onClickViewStats, buttonLabel }) => {
                 target="_blank"
                 rel="noreferrer"
             >
-                <img src={process.env.PUBLIC_URL + Logo} alt="" />
+                <img src={process.env.PUBLIC_URL + Logo} alt="Logo" />
             </a>
             <div className="timer">
                 <span>{time.getFullYear()}</span>:

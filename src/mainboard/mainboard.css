@@ -52,9 +52,18 @@ input[type="checkbox"] {
     justify-content: center;
     align-items: center;
     margin-top: 4rem;
+    text-align: center;
 }
 
 .x-axis-line {
     stroke: var(--color-secondary);
     stroke-width: 3;
+}
+
+@media (max-width: 600px) {
+    .barplot {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-top: 1rem;
+    }
 }

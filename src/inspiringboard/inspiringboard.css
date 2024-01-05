@@ -8,6 +8,15 @@
 p {
     display: flex;
     justify-content: center;
+    text-align: center;
     align-items: center;
     margin-bottom: 5rem;
+}
+
+@media (max-width: 600px) {
+    p {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        margin-bottom: 1rem;
+    }
 }

@@ -36,3 +36,9 @@
     color: var(--color-btn-primary);
     font-weight: 600;
 }
+
+@media (max-width: 600px) {
+    .add-form {
+        gap: 0rem;
+    }
+}

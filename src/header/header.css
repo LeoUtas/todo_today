@@ -28,3 +28,9 @@
     color: var(--color-btn-primary);
     font-weight: bold;
 }
+
+@media (max-width: 600px) {
+    .btn.newday-btn {
+        margin-right: 3rem;
+    }
+}

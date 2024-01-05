@@ -1,16 +1,17 @@
 footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+    gap: 2rem;
     font-size: 2rem;
     background-color: var(--color-secondary);
     text-align: center;
-    justify-content: center;
     padding-top: 3rem;
     padding-bottom: 3rem;
-    display: flex;
 }
 
 footer span {
-    margin-right: 0.5rem;
-    margin-left: 0.5rem;
     color: var(--text-corlor-secondary);
 }
 
@@ -21,7 +22,7 @@ footer span {
     background-color: #f4f4f4;
     border-radius: 1.2rem;
     height: 5rem;
-    width: 40%;
+    width: 35rem;
 }
 
 .stats button {
@@ -35,8 +36,8 @@ footer span {
     border: transparent;
     border-radius: 2.5rem;
     height: 5rem;
-    width: 120%;
-    margin-left: 3rem;
+    width: 16rem;
+
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3),
         inset 0 4px 4px rgba(255, 255, 255, 0.2);
 }
@@ -49,9 +50,27 @@ footer span {
 
 footer img {
     width: 9rem;
-    margin-right: 3rem;
 }
 
 footer img:hover {
     transform: scale(1.2);
+}
+
+@media (max-width: 1024px) {
+    footer {
+        gap: 1rem;
+    }
+    .timer {
+        width: 32rem;
+    }
+}
+
+@media (max-width: 600px) {
+    footer {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .timer {
+        width: 30rem;
+    }
 }
