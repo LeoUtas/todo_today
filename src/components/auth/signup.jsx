@@ -29,7 +29,17 @@ const SignUp = () => {
         event.preventDefault();
 
         try {
-            let { data, error } = await supabase.auth.signUp({
+            // let { data, error } = await supabase.auth.signUp({
+            //     email: signupFormData.email,
+            //     password: signupFormData.password,
+            //     options: {
+            //         data: {
+            //             displayName: signupFormData.displayName,
+            //         },
+            //     },
+            // });
+
+            let { error } = await supabase.auth.signUp({
                 email: signupFormData.email,
                 password: signupFormData.password,
                 options: {

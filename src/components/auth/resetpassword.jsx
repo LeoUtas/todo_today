@@ -24,10 +24,13 @@ const ResetPassword = ({ setUserAccessToken, setUserId, setDisplayName }) => {
         event.preventDefault();
 
         try {
-            let { data, error } = await supabase.auth.resetPasswordForEmail(
+            // let { data, error } = await supabase.auth.resetPasswordForEmail(
+            //     resetFormData.email
+            // );
+
+            let { error } = await supabase.auth.resetPasswordForEmail(
                 resetFormData.email
             );
-            console.log("reset email: ", resetFormData.email);
 
             if (error) throw error;
 
