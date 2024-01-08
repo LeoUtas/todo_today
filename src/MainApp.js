@@ -88,6 +88,8 @@ const MainApp = ({ userId, displayName, setUserAccessToken }) => {
                 .map((task) => new Date(task.created_at))
                 .sort((a, b) => a - b);
             const TimePoint0 = dates[0].toISOString().split("T")[0];
+            // console.log("0: ", TimePoint0);
+            // console.log("1: ", TimePoint1);
 
             if (TimePoint0 !== TimePoint1) {
                 setShowNewDayMessage(true);
