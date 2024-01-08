@@ -42,7 +42,7 @@ const SignIn = ({ setUserAccessToken, setUserId, setDisplayName }) => {
             setUserId(user.id);
             setDisplayName(user.user_metadata.displayName);
 
-            navigate("/todo_today/mainapp");
+            navigate("/mainapp");
         } catch (error) {
             // alert(error);
             alert("Oops, account doesn't exits in our database!");
@@ -80,12 +80,11 @@ const SignIn = ({ setUserAccessToken, setUserId, setDisplayName }) => {
                     <div className="auth-btn">
                         <button type="submit">Login</button>
                         <button type="submit">
-                            <Link to="/todo_today/reset">Reset</Link>
+                            <Link to="/reset">Reset</Link>
                         </button>
                     </div>
                 </form>
-                Don't have an account?{" "}
-                <Link to="/todo_today/signup">Sign Up</Link>
+                Don't have an account? <Link to="/signup">Sign Up</Link>
             </div>
         </div>
     );

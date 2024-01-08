@@ -60,14 +60,14 @@ const App = () => {
                                 setDisplayName={setDisplayName}
                             />
                         ) : (
-                            <Navigate to="/todo_today/mainapp" />
+                            <Navigate to="/mainapp" />
                         )
                     }
                 />
-                <Route path="/todo_today/reset" element={<ResetPassword />} />
-                <Route path="/todo_today/signup" element={<SignUp />} />
+                <Route path="/reset" element={<ResetPassword />} />
+                <Route path="/signup" element={<SignUp />} />
                 <Route
-                    path="/todo_today/mainapp"
+                    path="/mainapp"
                     element={
                         userId ? (
                             <MainApp
