@@ -56,7 +56,7 @@ Visit the <a href="https://todotoday0.netlify.app/" target="_blank" rel="noopene
 
 -   Enter the task you want to complete in the day
 -   Hit the Add button to add the task to the to-do list for the day
--   if you make a mistake, you can always remove the unwanted task by clicking the Delete button
+-   if you make a mistake, you can always remove the unwanted task by clicking the X button
 -   Once you have completed a task, you can check the box to mark it done
 
 <p align="center">
