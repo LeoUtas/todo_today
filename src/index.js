@@ -8,6 +8,6 @@ const container = document.querySelector("#root");
 const root = createRoot(container);
 root.render(
     <BrowserRouter basename="/todo_today">
-        <App tab="home" />
+        <App />
     </BrowserRouter>
 );
