@@ -37,8 +37,28 @@
     right: 2rem;
 }
 
+@media (max-width: 1024px) {
+    .btn.newday-btn {
+        margin-right: 3rem;
+    }
+    .header-title {
+        padding-top: 8rem; /* Increased padding-top */
+    }
+
+    .btn.newday-btn {
+        margin-right: 0.5rem;
+    }
+}
+
 @media (max-width: 600px) {
     .btn.newday-btn {
         margin-right: 3rem;
+    }
+    .header-title {
+        padding-top: 8rem; /* Increased padding-top */
+    }
+
+    .btn.newday-btn {
+        margin-right: 0.5rem;
     }
 }
