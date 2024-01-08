@@ -1,4 +1,4 @@
-import "../index.css";
+import "../../index.css";
 import "./inspiringboard.css";
 
 const InspiringBoard = ({ tasks, showStats }) => {

@@ -1,0 +1,60 @@
+form input {
+    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+form {
+    margin-top: 2rem;
+}
+
+.auth-form {
+    display: grid;
+    place-items: center;
+    line-height: 3rem;
+    font-size: 1.5rem;
+}
+
+.auth-form h3 {
+    margin-top: 4rem;
+    margin-bottom: 0;
+}
+
+form input {
+    width: 32rem;
+    height: 3.5rem;
+    font-size: 1.25rem;
+    border-radius: 10rem;
+    border: transparent;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.auth-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.auth-btn button {
+    width: 8rem;
+    height: 2.8rem;
+    font-size: 1.25rem;
+    border-radius: 10rem;
+    border: transparent;
+    background-color: var(--color-btn-primary);
+    color: var(--color-white);
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin: 0.5rem;
+    transition: background-color 0.3s ease;
+
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.3),
+        inset 0 4px 4px rgba(255, 255, 255, 0.2);
+}
+
+button:hover {
+    color: var(--color-btn-primary);
+    background-color: var(--color-white);
+    font-weight: 600;
+}

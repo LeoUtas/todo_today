@@ -1,5 +1,5 @@
 import "./mainboard.css";
-import "../index.css";
+import "../../index.css";
 
 const Task = ({ task, onDeleteTask, onToggleTask }) => {
     return (
@@ -9,7 +9,7 @@ const Task = ({ task, onDeleteTask, onToggleTask }) => {
                     className="check-btn"
                     type="checkbox"
                     checked={task.done}
-                    onChange={() => onToggleTask(task.id_now)}
+                    onChange={() => onToggleTask(task.id)}
                 />
                 <span
                     style={task.done ? { textDecoration: "line-through" } : {}}
@@ -18,7 +18,7 @@ const Task = ({ task, onDeleteTask, onToggleTask }) => {
                 </span>
                 <button
                     className="delete-btn"
-                    onClick={() => onDeleteTask(task.id_now)}
+                    onClick={() => onDeleteTask(task.id)}
                 >
                     ❌
                 </button>
@@ -42,7 +42,7 @@ const Mainboard = ({ tasks, onDeleteTask, onToggleTask, showStats }) => {
                                 task={task}
                                 onDeleteTask={onDeleteTask}
                                 onToggleTask={onToggleTask}
-                                key={task.id_now}
+                                key={task.id}
                             />
                         ))}
                     </ul>

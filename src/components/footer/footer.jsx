@@ -1,7 +1,7 @@
-import "../index.css";
+import "../../index.css";
 import "./footer.css";
 import { useState, useEffect } from "react";
-import Logo from "../assets/logo.png";
+import Logo from "../../assets/logo.png";
 
 const Footer = ({ onClickViewStats, buttonLabel }) => {
     const [time, setTime] = useState(new Date());

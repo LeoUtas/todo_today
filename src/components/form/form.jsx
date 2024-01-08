@@ -1,9 +1,9 @@
 import { useState } from "react";
-import supabase from "../supabase";
+import supabase from "../../supabase";
 import "./form.css";
-import "../index.css";
+import "../../index.css";
 
-const Form = ({ onAddTask }) => {
+const Form = ({ onAddTask, userId }) => {
     const [taskDescription, setTaskDescription] = useState("");
 
     async function handleSubmit(event) {
@@ -13,7 +13,13 @@ const Form = ({ onAddTask }) => {
 
         const { data: newTask, error } = await supabase
             .from("tasks")
-            .insert([{ id_now: Date.now(), taskDescription, done: false }])
+            .insert([
+                {
+                    userId: userId,
+                    taskDescription,
+                    done: false,
+                },
+            ])
             .select();
 
         if (error) {

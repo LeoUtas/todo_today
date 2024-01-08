@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import * as d3 from "d3";
-import "../index.css";
+import "../../index.css";
 import "./mainboard.css";
 
 const MARGIN = { top: 30, right: 30, bottom: 30, left: 30 };
