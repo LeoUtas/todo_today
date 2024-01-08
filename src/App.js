@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { SignUp, SignIn } from "./components/auth/auth";
-import MainApp from "./MainApp";
+import MainApp from "./components/MainApp";
 import ResetPassword from "./components/auth/resetpassword";
 
 const App = () => {
@@ -51,7 +51,7 @@ const App = () => {
         <div>
             <Routes>
                 <Route
-                    path="/"
+                    path="/todo_today"
                     element={
                         !userAccessToken ? (
                             <SignIn
@@ -76,7 +76,7 @@ const App = () => {
                                 setUserAccessToken={setUserAccessToken}
                             />
                         ) : (
-                            <Navigate to="/" />
+                            <Navigate to="/todo_today" />
                         )
                     }
                 />

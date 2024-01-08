@@ -31,7 +31,7 @@ const ResetPassword = ({ setUserAccessToken, setUserId, setDisplayName }) => {
 
             if (error) throw error;
 
-            navigate("/");
+            navigate("/todo_today");
         } catch (error) {
             console.log("resetpassword error: ", error.message);
             alert("Oops, account doesn't exits in our database!");
@@ -56,7 +56,7 @@ const ResetPassword = ({ setUserAccessToken, setUserId, setDisplayName }) => {
                     <div className="auth-btn">
                         <button type="submit">Reset</button>
                         <button type="submit">
-                            <Link to="/">Login</Link>
+                            <Link to="/todo_today">Login</Link>
                         </button>
                     </div>
                 </form>
