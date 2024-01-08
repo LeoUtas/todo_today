@@ -51,7 +51,7 @@ const App = () => {
         <div>
             <Routes>
                 <Route
-                    path="/"
+                    path="/todo_today"
                     element={
                         !userAccessToken ? (
                             <SignIn
@@ -76,7 +76,7 @@ const App = () => {
                                 setUserAccessToken={setUserAccessToken}
                             />
                         ) : (
-                            <Navigate to="/" />
+                            <Navigate to="/todo_today" />
                         )
                     }
                 />

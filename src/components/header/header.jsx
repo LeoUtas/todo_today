@@ -14,7 +14,7 @@ const Header = ({
     function handleLogout() {
         setUserAccessToken(null);
         sessionStorage.removeItem("token");
-        navigate("/");
+        navigate("/todo_today");
     }
 
     return (
