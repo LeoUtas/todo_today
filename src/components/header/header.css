@@ -42,7 +42,7 @@
         margin-right: 3rem;
     }
     .header-title {
-        padding-top: 8rem; /* Increased padding-top */
+        padding-top: 8rem;
     }
 
     .btn.newday-btn {
@@ -55,10 +55,10 @@
         margin-right: 3rem;
     }
     .header-title {
-        padding-top: 8rem; /* Increased padding-top */
+        padding-top: 8rem;
     }
 
-    .btn.newday-btn {
+    /* .btn.newday-btn {
         margin-right: 0.5rem;
-    }
+    } */
 }
