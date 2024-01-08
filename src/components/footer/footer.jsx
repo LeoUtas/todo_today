@@ -1,7 +1,6 @@
 import "../../index.css";
 import "./footer.css";
 import { useState, useEffect } from "react";
-import Logo from "../../assets/logo.png";
 
 const Footer = ({ onClickViewStats, buttonLabel }) => {
     const [time, setTime] = useState(new Date());
@@ -66,7 +65,7 @@ const Footer = ({ onClickViewStats, buttonLabel }) => {
                 target="_blank"
                 rel="noreferrer"
             >
-                <img src={process.env.PUBLIC_URL + Logo} alt="Logo" />
+                <img src={process.env.PUBLIC_URL + "/logo.png"} alt="Logo" />
             </a>
             <div className="timer">
                 <span>{time.getFullYear()}</span>:
