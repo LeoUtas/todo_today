@@ -36,6 +36,8 @@ const ResetPassword = () => {
 
             if (error) throw error;
 
+            alert("Password updated successfully");
+
             navigate("/");
         } catch (error) {
             console.log("reset password error: ", error.message);
