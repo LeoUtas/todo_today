@@ -4,16 +4,15 @@ import supabase from "../../supabase";
 import "../header/header.css";
 import "./auth.css";
 
-const ResetPassword = () => {
+const RequestResetPassword = () => {
     let navigate = useNavigate();
 
-    const [resetFormData, setResetFormData] = useState({
+    const [requestFormData, setRequestFormData] = useState({
         email: "",
-        newPassword: "",
     });
 
     function handleChange(event) {
-        setResetFormData((prevFormData) => {
+        setRequestFormData((prevFormData) => {
             return {
                 ...prevFormData,
                 [event.target.name]: event.target.value,
@@ -21,24 +20,20 @@ const ResetPassword = () => {
         });
     }
 
-    async function handleResetPasswordSubmit(event) {
+    async function handleRequestResetPasswordSubmit(event) {
         event.preventDefault();
 
         try {
-            const { data, error } = await supabase.auth.updateUser({
-                email: resetFormData.email,
-                password: resetFormData.newPassword,
-            });
+            const { error } = await supabase.auth.resetPasswordForEmail(
+                requestFormData.email
+            );
 
-            if (data) {
-                console.log("successfully updated");
-            }
+            navigate("/blank");
 
             if (error) throw error;
-
-            navigate("/");
         } catch (error) {
-            console.log("reset password error: ", error.message);
+            console.log("request reset password error: ", error.message);
+            alert("Oops, account doesn't exits in our database!");
         }
     }
 
@@ -50,19 +45,10 @@ const ResetPassword = () => {
 
             <div className="auth-form">
                 <h3>Password recovery</h3>
-                <form onSubmit={handleResetPasswordSubmit}>
+                <form onSubmit={handleRequestResetPasswordSubmit}>
                     <input
                         placeholder="Enter your email ..."
                         name="email"
-                        value={resetFormData.email}
-                        onChange={handleChange}
-                    />
-
-                    <input
-                        placeholder="Enter your new password ..."
-                        name="newPassword"
-                        type="password"
-                        value={resetFormData.newPassword}
                         onChange={handleChange}
                     />
 
@@ -78,4 +64,4 @@ const ResetPassword = () => {
     );
 };
 
-export default ResetPassword;
+export default RequestResetPassword;

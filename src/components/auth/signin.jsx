@@ -45,7 +45,9 @@ const SignIn = ({ setUserAccessToken, setUserId, setDisplayName }) => {
             navigate("/mainapp");
         } catch (error) {
             // alert(error);
-            alert("Oops, account doesn't exits in our database!");
+            alert(
+                "Oops, either your password is incorrect, or your account doesn't exits! is correct"
+            );
         }
     }
 
@@ -80,7 +82,7 @@ const SignIn = ({ setUserAccessToken, setUserId, setDisplayName }) => {
                     <div className="auth-btn">
                         <button type="submit">Login</button>
                         <button type="submit">
-                            <Link to="/reset">Reset</Link>
+                            <Link to="/requestreset">Reset</Link>
                         </button>
                     </div>
                 </form>

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { SignUp, SignIn } from "./components/auth/auth";
 import MainApp from "./components/MainApp";
+import RequestResetPassword from "./components/auth/requestresetpassword";
 import ResetPassword from "./components/auth/resetpassword";
+import BlankPage from "./components/auth/blankpage";
 
 const App = () => {
     const [userId, setUserId] = useState(null);
@@ -64,8 +66,18 @@ const App = () => {
                         )
                     }
                 />
-                <Route path="/reset" element={<ResetPassword />} />
+
+                <Route
+                    path="/requestreset"
+                    element={<RequestResetPassword />}
+                />
+
+                <Route path="/resetpassword" element={<ResetPassword />} />
+
                 <Route path="/signup" element={<SignUp />} />
+
+                <Route path="/blank" element={<BlankPage />} />
+
                 <Route
                     path="/mainapp"
                     element={
