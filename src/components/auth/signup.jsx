@@ -53,7 +53,7 @@ const SignUp = () => {
             setShowCheckEmailMessage(true);
             alert("Hi, check your email for verification, please.");
 
-            navigate("/todo_today");
+            navigate("/");
         } catch (error) {
             alert(error);
             console.error("Signup error:", error.message);
@@ -91,7 +91,7 @@ const SignUp = () => {
                         <button type="submit">Submit</button>
                     </div>
                 </form>
-                Already have an account?<Link to="/todo_today">Login</Link>
+                Already have an account?<Link to="/">Login</Link>
             </div>
 
             <CheckEmailMessage
