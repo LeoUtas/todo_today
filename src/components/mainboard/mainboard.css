@@ -52,12 +52,18 @@ input[type="checkbox"] {
     justify-content: center;
     align-items: center;
     margin-top: 4rem;
+    margin-bottom: 4rem;
     text-align: center;
 }
 
 .x-axis-line {
     stroke: var(--color-secondary);
     stroke-width: 3;
+}
+
+.x-axis-text {
+    font-size: 20px;
+    fill: var(--color-white);
 }
 
 @media (max-width: 1024px) {
