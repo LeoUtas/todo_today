@@ -6,7 +6,7 @@ import "./mainboard.css";
 const MARGIN = { top: 30, right: 30, bottom: 30, left: 30 };
 const BAR_PADDING = 0.2;
 
-const Barplot = ({ width, height, data }) => {
+const Barplot = ({ width, height, data, numberOfDays }) => {
     const boundsWidth = width - MARGIN.right - MARGIN.left;
     const boundsHeight = height - MARGIN.top - MARGIN.bottom;
 
@@ -118,7 +118,7 @@ const Barplot = ({ width, height, data }) => {
                         textAnchor="middle" // Center the text
                         className="x-axis-text"
                     >
-                        Your 365 days
+                        You recorded {numberOfDays}/365 days
                     </text>
                 </g>
             </svg>
@@ -158,14 +158,18 @@ const Stats = ({ statsData }) => {
             (stats.numberCompletedTasks / stats.numberListedTasks) * 100
         );
         const notdone = 100 - done;
+        const numberOfDays = statsData.length;
 
         return {
             day: `${index + 1}`,
             date: stats.formattedDate,
             done: done,
             notdone: notdone,
+            numberOfDays: numberOfDays,
         };
     });
+
+    const numberOfDays = statsData.length;
 
     return (
         <div className="barplot">
@@ -173,6 +177,7 @@ const Stats = ({ statsData }) => {
                 width={plotWidth}
                 height={plotHeight}
                 data={computedData}
+                numberOfDays={numberOfDays}
             />
         </div>
     );
