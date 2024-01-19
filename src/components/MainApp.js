@@ -1,5 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import axios from "axios";
+
 import Header from "./header/header";
 import Form from "./form/form";
 import Mainboard from "./mainboard/mainboard";
@@ -13,6 +15,14 @@ import { NotYetMessage, NewDayMessage, NoStatsAlert } from "./messages/message";
 const MainApp = ({ userId, displayName, setUserAccessToken }) => {
     const uerIdArg = userId;
     const [tasks, setTasks] = useState([]);
+    const [tasksUpdated, setTasksUpdated] = useState(false);
+    const [isLoadingAIResponse, setIsLoadingAIResponse] = useState(false);
+
+    const numberListedTasks = tasks.length;
+    const numberCompletedTasks = tasks.filter((task) => task.done).length;
+    const percentageDone = Number(
+        ((numberCompletedTasks * 100) / numberListedTasks).toFixed(2)
+    );
 
     useEffect(() => {
         // Define a fetchTasks function
@@ -26,6 +36,8 @@ const MainApp = ({ userId, displayName, setUserAccessToken }) => {
                 console.error("Error fetching tasks:", error);
             } else {
                 setTasks(tasks);
+                setIsLoadingAIResponse(true);
+                setTasksUpdated(true);
             }
         };
 
@@ -35,6 +47,7 @@ const MainApp = ({ userId, displayName, setUserAccessToken }) => {
 
     const handleAddTask = (task) => {
         setTasks((tasks) => [...tasks, task]);
+        setTasksUpdated(true);
     };
 
     const handleDeleteTask = async (id) => {
@@ -46,6 +59,7 @@ const MainApp = ({ userId, displayName, setUserAccessToken }) => {
         }
 
         setTasks((items) => items.filter((item) => item.id !== id));
+        setTasksUpdated(true);
     };
 
     const handleToggleTask = async (id) => {
@@ -69,8 +83,35 @@ const MainApp = ({ userId, displayName, setUserAccessToken }) => {
                 task.id === id ? { ...task, done: !task.done } : task
             )
         );
+        setTasksUpdated(true);
     };
 
+    // handle the AI response
+    const [aiResponse, setAIResponse] = useState("");
+
+    useEffect(() => {
+        const fetchAIResponse = async () => {
+            try {
+                const response = await axios.post(
+                    "http://localhost:8000/get-ai-response/",
+                    { percentage_done: percentageDone }
+                );
+                setAIResponse(response.data.ai_response);
+            } catch (error) {
+                console.error("Error fetching AI response:", error);
+            }
+
+            setTasksUpdated(false);
+            setIsLoadingAIResponse(false);
+        };
+
+        if (tasksUpdated) {
+            setIsLoadingAIResponse(true);
+            fetchAIResponse();
+        }
+    }, [percentageDone, tasksUpdated]);
+
+    // handle NewDay functionality
     const [showNotYetMessage, setShowNotYetMessage] = useState(false);
     const [showNewDayMessage, setShowNewDayMessage] = useState(false);
 
@@ -195,7 +236,14 @@ const MainApp = ({ userId, displayName, setUserAccessToken }) => {
                     showStats={showStats}
                 />
                 {showStats && <Stats statsData={statsData} />}
-                <InspiringBoard tasks={tasks} />
+                <InspiringBoard
+                    tasks={tasks}
+                    percentageDone={percentageDone}
+                    numberListedTasks={numberListedTasks}
+                    numberCompletedTasks={numberCompletedTasks}
+                    isLoadingAIResponse={isLoadingAIResponse}
+                    aiResponse={aiResponse}
+                />
                 <Footer
                     onClickViewStats={handleClickViewStats}
                     buttonLabel={viewStatsButtonLabel}
