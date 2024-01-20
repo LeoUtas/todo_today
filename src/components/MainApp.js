@@ -2,19 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import Header from "./components/header/header";
-import Form from "./components/form/form";
-import Mainboard from "./components/mainboard/mainboard";
-import Stats from "./components/mainboard/stats";
-import InspiringBoard from "./components/inspiringboard/inspiringboard";
-import Footer from "./components/footer/footer";
+import Header from "./header/header";
+import Form from "./form/form";
+import Mainboard from "./mainboard/mainboard";
+import Stats from "./mainboard/stats";
+import InspiringBoard from "./inspiringboard/inspiringboard";
+import Footer from "./footer/footer";
 
-import supabase from "./supabase";
-import {
-    NotYetMessage,
-    NewDayMessage,
-    NoStatsAlert,
-} from "./components/messages/message";
+import supabase from "../supabase";
+import { NotYetMessage, NewDayMessage, NoStatsAlert } from "./messages/message";
 
 const MainApp = ({ userId, displayName, setUserAccessToken }) => {
     const uerIdArg = userId;
