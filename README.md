@@ -13,17 +13,25 @@
 
 ### Introduction
 
-This original project was built to help me track my daily to-do list. The app allows users to add new tasks, check completed tasks, and remove tasks from the list. Also, users can start a new day to monitor new daily tasks when the day is over. An important feature is tracking the percentage of completed tasks during the day throughout the user’s history.
+This original project helps to keep track of daily to-do list. It leverages Openai API to generate inspiring messages throughout the day. Users can add new tasks, check completed tasks, remove tasks and start a new day when the day is over. An important feature is tracking the percentage of completed tasks each day throughout history.
+
+Look at the live demo; you could see that my virtual assistant is hilarious. She told me, “Don’t worry, you have plenty of time to procrastinate,” when I marked a day of 0% done.
 
 ### Demo
 
 Visit the <a href="https://todotoday0.netlify.app/" target="_blank" rel="noopener noreferrer">live demo </a>
+
+<p align="center">
+  <img src="/src/assets/readme_imgs/todo_today.gif" width="480" alt=""/>
+</p>
 
 ### Technical tools
 
 -   ReactJS
 -   HTML
 -   CSS
+-   FastAPI
+-   OpenAIAPI
 
 ### How to use the app
 
