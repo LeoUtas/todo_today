@@ -210,14 +210,15 @@ const MainApp = ({ userId, displayName, setUserAccessToken }) => {
         }
     };
 
+    // show Today or show History
     const [showStats, setShowStats] = useState(false);
     const [viewStatsButtonLabel, setViewStatsButtonLabel] =
-        useState("View stats");
+        useState("View history");
 
     const handleClickViewStats = () => {
         setShowStats(!showStats);
         setViewStatsButtonLabel((label) =>
-            label === "View stats" ? "View today" : "View stats"
+            label === "View history" ? "View today" : "View history"
         );
         fetchStats(); // Reload the stats data
     };

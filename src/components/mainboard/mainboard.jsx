@@ -31,9 +31,7 @@ const Mainboard = ({ tasks, onDeleteTask, onToggleTask, showStats }) => {
     return (
         <>
             {showStats ? (
-                <div className="barplot">
-                    Let's have a look at the statistics
-                </div>
+                <div className="barplot">Let's have a look at your records</div>
             ) : (
                 <div>
                     <ul className="list">
