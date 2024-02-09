@@ -89,13 +89,14 @@ const MainApp = ({ userId, displayName, setUserAccessToken }) => {
     // handle the AI response
     const [aiResponse, setAIResponse] = useState("");
     // "https://todotoday-backend0-4172a0c6219f.herokuapp.com/get-ai-response/";
+    // "https://aichatbot-backend-c82886e0972c.herokuapp.com/get_ai_response_for_todotoday/"
     // "http://localhost:8000/get-ai-response/";
 
     useEffect(() => {
         const fetchAIResponse = async () => {
             try {
                 const response = await axios.post(
-                    "https://todotoday-backend0-4172a0c6219f.herokuapp.com/get-ai-response/",
+                    "https://aichatbot-backend-c82886e0972c.herokuapp.com/get_ai_response_for_todotoday/",
                     { percentage_done: percentageDone }
                 );
                 setAIResponse(response.data.ai_response);

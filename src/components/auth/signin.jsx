@@ -46,7 +46,7 @@ const SignIn = ({ setUserAccessToken, setUserId, setDisplayName }) => {
         } catch (error) {
             // alert(error);
             alert(
-                "Oops, either your password is incorrect, or your account doesn't exits! is correct"
+                "Oops, either your password is incorrect, or your account doesn't exits!"
             );
         }
     }
@@ -60,11 +60,11 @@ const SignIn = ({ setUserAccessToken, setUserId, setDisplayName }) => {
             <div className="auth-form">
                 <h3>Log in</h3>
                 <form onSubmit={handleSigninSubmit}>
-                    <input
+                    {/* <input
                         placeholder="User Name"
                         name="name"
                         onChange={handleChange}
-                    />
+                    /> */}
 
                     <input
                         placeholder="Email"
