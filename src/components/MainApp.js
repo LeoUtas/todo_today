@@ -90,8 +90,7 @@ const MainApp = ({ userId, displayName, setUserAccessToken }) => {
 
     // handle the AI response
     const [aiResponse, setAIResponse] = useState("");
-    // "http://localhost:8000/get-ai-response/";
-    // "https://aichatbot-backend-c82886e0972c.herokuapp.com/todotoday/get_ai_response/"
+    // "http://localhost:8000/get-ai-response/";    
 
     useEffect(() => {
         const fetchAIResponse = async () => {
