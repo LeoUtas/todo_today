@@ -12,6 +12,8 @@ import Footer from "./footer/footer";
 import supabase from "../supabase";
 import { NotYetMessage, NewDayMessage, NoStatsAlert } from "./messages/message";
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
 const MainApp = ({ userId, displayName, setUserAccessToken }) => {
     const uerIdArg = userId;
     const [tasks, setTasks] = useState([]);
@@ -88,18 +90,17 @@ const MainApp = ({ userId, displayName, setUserAccessToken }) => {
 
     // handle the AI response
     const [aiResponse, setAIResponse] = useState("");
-    // "https://todotoday-backend0-4172a0c6219f.herokuapp.com/get-ai-response/";
-    // "https://aichatbot-backend-c82886e0972c.herokuapp.com/get_ai_response_for_todotoday/"
     // "http://localhost:8000/get-ai-response/";
+    // "https://aichatbot-backend-c82886e0972c.herokuapp.com/todotoday/get_ai_response/"
 
     useEffect(() => {
         const fetchAIResponse = async () => {
             try {
-                const response = await axios.post(
-                    "https://aichatbot-backend-c82886e0972c.herokuapp.com/get_ai_response_for_todotoday/",
-                    { percentage_done: percentageDone }
-                );
+                const response = await axios.post(backendUrl, {
+                    percentage_done: percentageDone,
+                });
                 setAIResponse(response.data.ai_response);
+                console.log(backendUrl);
             } catch (error) {
                 console.error("Error fetching AI response:", error);
             }
