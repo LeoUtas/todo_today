@@ -3,12 +3,7 @@ import "../../index.css";
 import "./header.css";
 import "../auth/auth.css";
 
-const Header = ({
-    onNewDayClick,
-    displayName,
-
-    setUserAccessToken,
-}) => {
+const Header = ({ onNewDayClick, displayName, setUserAccessToken }) => {
     let navigate = useNavigate();
 
     function handleLogout() {

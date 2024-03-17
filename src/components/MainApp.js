@@ -12,7 +12,8 @@ import Footer from "./footer/footer";
 import supabase from "../supabase";
 import { NotYetMessage, NewDayMessage, NoStatsAlert } from "./messages/message";
 
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+// const backendUrl = process.env.REACT_APP_BACKEND_URL_DEV;
+const backendUrl = process.env.REACT_APP_BACKEND_URL_PRODUCTION;
 
 const MainApp = ({ userId, displayName, setUserAccessToken }) => {
     const uerIdArg = userId;
@@ -90,7 +91,6 @@ const MainApp = ({ userId, displayName, setUserAccessToken }) => {
 
     // handle the AI response
     const [aiResponse, setAIResponse] = useState("");
-    // "http://localhost:8000/get-ai-response/";    
 
     useEffect(() => {
         const fetchAIResponse = async () => {
@@ -99,7 +99,6 @@ const MainApp = ({ userId, displayName, setUserAccessToken }) => {
                     percentage_done: percentageDone,
                 });
                 setAIResponse(response.data.ai_response);
-                console.log(backendUrl);
             } catch (error) {
                 console.error("Error fetching AI response:", error);
             }
@@ -122,16 +121,26 @@ const MainApp = ({ userId, displayName, setUserAccessToken }) => {
         if (tasks.length === 0) {
             return;
         } else {
-            const TimePoint1 = new Date().toISOString().split("T")[0];
+            // format YYYY-MM-DD
+            const options = {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+            };
 
-            const dates = tasks
+            const timePoint1 = new Date();
+            const datePoint1 = timePoint1.toLocaleDateString("en-CA", options);
+
+            const timePoint0s = tasks
                 .map((task) => new Date(task.created_at))
                 .sort((a, b) => a - b);
-            const TimePoint0 = dates[0].toISOString().split("T")[0];
-            // console.log("0: ", TimePoint0);
-            // console.log("1: ", TimePoint1);
 
-            if (TimePoint0 !== TimePoint1) {
+            const datePoint0 = timePoint0s[0].toLocaleDateString(
+                "en-CA",
+                options
+            );
+
+            if (datePoint0 !== datePoint1) {
                 setShowNewDayMessage(true);
             } else {
                 setShowNotYetMessage(true);
